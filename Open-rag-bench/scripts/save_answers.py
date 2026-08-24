@@ -92,7 +92,7 @@ def get_context_distances(input):
             # Write header if starting fresh
             if file_mode == 'w':
                 with open(output, 'w') as f:
-                    f.write('QID,pubmed_id,mean_distance_a,relevance_score,hallucination_index,vector_distances,vector_scores,bm25_scores,rerank_sentiments\n')
+                    f.write('QID,pubmed_id,mean_distance_a,relevance_score,hallucination_index_by_ml,hallucination_index_by_equation,vector_distances,vector_scores,bm25_scores,rerank_sentiments\n')
 
             for j, (question, answer, contexts_full, document_id) in enumerate(zip(question_list, answers_list, context_lists, document_ids)):
                 question_idx = j + 1
@@ -106,7 +106,7 @@ def get_context_distances(input):
 
                 if contexts_full == []:
                     with open(output, 'a') as f:
-                        f.write(f"{question_idx},{document_id},n/a,n/a,n/a,n/a,n/a,n/a,n/a\n")
+                        f.write(f"{question_idx},{document_id},n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a\n")
                         continue
 
                 response = requests.post(save_answer_api, json={
@@ -125,23 +125,30 @@ def get_context_distances(input):
                     'c_hi':0.66,
                     'temperature':0.4,
                     'top_k':20,
-                    'top_p':0.7
+                    'top_p': 0.7,
+                    'QRS_p': 1, 
+                    'ARS_q': 2,
+                    'use_default_hi': True
                 },
                 headers={'Authorization': f'Bearer {token}'})
 
                 if response.status_code == 200:
-                    mean_distance_a = response.json().get('mean_distance_a')
-                    relevance_score = response.json().get('relevance_score')
-                    hallucination_index = response.json().get('hallucination_index')
+                    data = response.json()
+                    
+                    m_dist = data.get('mean_distance_a', '')
+                    rel_score = data.get('relevance_score', '')
+                    hal_idx_eq = data.get('hallucination_index_by_equation', '')
+                    hal_idx_ml = data.get('hallucination_index_by_ml', '')
                     sources = response.json().get('sources')
                     vector_distances = [source['answer_vector_distance_raw'] for source in sources]
                     vector_scores = [source['answer_vector_score'] for source in sources]
                     bm25_scores = [source['answer_bm25_score'] for source in sources]
                     rerank_sentiments = [source['rerank_sentiment'] for source in sources]
-                # Write to CSV after each request
-                with open(output, 'a') as f:
-                    f.write(f"{question_idx},{document_id},{mean_distance_a},{relevance_score},{hallucination_index},\"{vector_distances}\",\"{vector_scores}\",\"{bm25_scores}\",\"{rerank_sentiments}\"\n")
-                    f.flush()
+                    
+                    # --- MODIFIED WRITE: Added q_id ---
+                    f.write(f"{question_idx},{m_dist},{rel_score},{hal_idx_eq},{hal_idx_ml},\"{vector_distances}\",\"{vector_scores}\",\"{bm25_scores}\",\"{rerank_sentiments}\"\n")
+                    f.flush() 
+                    success_count += 1
 
  
 def calculate_context_answers_distance():

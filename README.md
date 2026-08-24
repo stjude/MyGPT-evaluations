@@ -20,6 +20,15 @@ cp env_example .env
 - `API_USERNAME` – Authentication username
 - `API_PASSWORD` – Authentication password
 
+Note: If you don't have API_USERNAME and API_PASSWORD, you have to cretae superuser account in MyGPT and use the credentials to run the evaluation pipeline. To create superuser account, run provided script with installation guide for your operating system. 
+
+For example, on MacOS, you can run:
+
+```bash
+cd MyGPT/installation/macOS/prebuilt_images/
+bash create_superuser.sh
+```
+
 ### 2. Choose a Dataset and Follow Its README
 
 Each evaluation dataset has its own folder with a dedicated README containing:

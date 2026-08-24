@@ -6,7 +6,7 @@ import pandas as pd
 import re
 from dotenv import load_dotenv
 
-load_dotenv('../.env')
+load_dotenv('../../.env')
 start_time = time.time()
 
 OLLAMA_API_URL = os.environ.get('OLLAMA_API_URL', '').strip().strip('"').rstrip('/')
@@ -15,7 +15,7 @@ OLLAMA_API_URL = os.environ.get('OLLAMA_API_URL', '').strip().strip('"').rstrip(
 # Variables #
 #############
 
-LIBRARY_NAME = 'bioasq-2'
+LIBRARY_NAME = 'BioASQ'
 EMBEDDING_MODEL = 'nomic'
 MODELS = [
     'gpt-oss:20b'

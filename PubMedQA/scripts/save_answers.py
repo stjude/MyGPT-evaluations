@@ -6,7 +6,7 @@ import re
 import os
 from dotenv import load_dotenv
 
-load_dotenv('../.env')
+load_dotenv('../../.env')
 
 start_time = time.time()
 
@@ -69,14 +69,14 @@ def get_context_distances(input):
             for shorthand in EMBED_SHORTHANDS:
                 output = f'../outputs/answers/answers-scores-{LIBRARY_NAME}-{model}.csv'
             with open(output, 'w') as f:
-                f.write('mean_distance_a,relevance_score,hallucination_index,vector_distances,vector_scores,bm25_scores,rerank_sentiments\n')
+                f.write('mean_distance_a,relevance_score,hallucination_index_by_ml,hallucination_index_by_equation,vector_distances,vector_scores,bm25_scores,rerank_sentiments\n')
            
                 for j, (question, answer, contexts_full) in enumerate(zip(question_list, answers_list, context_lists)):
                     # print(contexts_full)
                     # if j < 57:
                     #     continue
                     if contexts_full == []:
-                        f.write(f"n/a,n/a,n/a,n/a,n/a,n/a,n/a\n")
+                        f.write(f"n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a\n")
                         continue
                     #  remove this kind of strings from the beginning of the context 'Page 4 - 38252844:  '
                     contexts_regex = r'Page \d+ - \d+:  '
@@ -112,7 +112,10 @@ def get_context_distances(input):
                         'c_hi':0.66,
                         'temperature':0.4,
                         'top_k':20,
-                        'top_p':0.7
+                        'top_p': 0.7,
+                        'QRS_p': 1, 
+                        'ARS_q': 2,
+                        'use_default_hi': True
                     },
                     headers={'Authorization': f'Bearer {token}'})
                     print(response.json())
@@ -123,7 +126,8 @@ def get_context_distances(input):
                         mean_distance_a = response.json().get('mean_distance_a')
                         # mean_distance = response.json().get('mean_distance')
                         relevance_score = response.json().get('relevance_score')
-                        hallucination_index = response.json().get('hallucination_index')
+                        hal_idx_eq = response.json().get('hallucination_index_by_equation', '')
+                        hal_idx_ml = response.json().get('hallucination_index_by_ml', '')
                         sources = response.json().get('sources')
                         vector_distances = [source['answer_vector_distance_raw'] for source in sources]
                         vector_scores = [source['answer_vector_score'] for source in sources]
@@ -135,7 +139,7 @@ def get_context_distances(input):
                         # rerank_sentiments = response.json().get('rerank_sentiments')
                         # bm25_rerank_scores = response.json().get('bm25_rerank_scores')
                     
-                    f.write(f"{mean_distance_a},{relevance_score},{hallucination_index},\"{vector_distances}\",\"{vector_scores}\",\"{bm25_scores}\",\"{rerank_sentiments}\"\n")
+                    f.write(f"{mean_distance_a},{relevance_score},{hal_idx_ml},{hal_idx_eq},\"{vector_distances}\",\"{vector_scores}\",\"{bm25_scores}\",\"{rerank_sentiments}\"\n")
  
 def calculate_context_answers_distance():
     input = f'../outputs/answers/answers-{MODELS[0].replace(":","-")}-{LIBRARY_NAME}.json'

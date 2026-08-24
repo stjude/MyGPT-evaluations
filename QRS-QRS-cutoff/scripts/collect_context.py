@@ -5,7 +5,7 @@ import requests
 import pandas as pd
 from dotenv import load_dotenv
 
-load_dotenv('../.env')
+load_dotenv('../../.env')
 start_time = time.time()
 
 BACKEND_API_URL = os.environ.get('BACKEND_API_URL', '').strip().strip('"').rstrip('/')

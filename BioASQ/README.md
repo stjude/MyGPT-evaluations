@@ -4,12 +4,22 @@
 
 BioASQ is a biomedical question answering dataset used to evaluate the MyGPT system's performance on domain-specific QA tasks.
 
+Subset of BioASQ: 
+
+For the manuscript, we used a subset of the BioASQ dataset containing 3964 questions. The full dataset contains 163 questions.
+
+The raw dataset is available at https://participants-area.bioasq.org/datasets/ as "13b golden enriched"
+
+Based on the Power Analysis, we determined that a sample size of 163 would be sufficient for our study.
+
+
 ## Folder Structure
 
 ```
 BioASQ/
 ├── inputs/
-│   └── questions_final.csv          # Input questions
+│   ├── questions_final.csv          # Input questions
+|   └── pdfs/                        # PDFs to create the dataset
 ├── outputs/
 │   ├── contexts/                    # Generated context data
 │   │   └── context_Bioasq.json
@@ -26,15 +36,24 @@ BioASQ/
 
 ## Running the Pipeline
 
-From the `scripts/` directory:
+Step 1: Create a MyGPT library named 'BioASQ' in MyGPT using PDFs from inputs/pdfs
 
-```bash
-python3 collect_context.py
-python3 collect_answers.py
-python3 save_answers.py
-python3 format_answers.py
-python3 combine_answers.py
-```
+    Use default settings of MyGPT to upload. 
+    The uploading can take form 5-20 minutes based on configureation of your device.
+
+    Note: if you use any other library name, make sure to update the references in the scripts accordingly in all the scripts in the `scripts/` directory.
+
+Step 2: Run scripts to collect answers and scores.
+
+    From the `scripts/` directory:
+
+    ```bash
+    python3 collect_context.py
+    python3 collect_answers.py
+    python3 save_answers.py
+    python3 format_answers.py
+    python3 combine_answers.py
+    ```
 
 ## Input Format
 

@@ -5,7 +5,7 @@ import requests
 import pandas as pd
 from dotenv import load_dotenv
 
-load_dotenv('../.env')
+load_dotenv('../../.env')
 start_time = time.time()
 
 BACKEND_API_URL = os.environ.get('BACKEND_API_URL', '').strip().strip('"').rstrip('/')
@@ -14,7 +14,7 @@ BACKEND_API_URL = os.environ.get('BACKEND_API_URL', '').strip().strip('"').rstri
 # Variables #
 #############
 
-LIBRARY_NAME = 'bioasq-2'
+LIBRARY_NAME = 'BioASQ'
 EMBEDDING_MODEL = 'nomic'
 model =  'gpt-oss:20b' #'gpt-oss:20b'
 

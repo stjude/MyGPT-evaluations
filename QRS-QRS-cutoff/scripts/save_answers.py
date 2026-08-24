@@ -9,7 +9,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 
 # Load environment variables
-load_dotenv('../.env')
+load_dotenv('../../.env')
 
 start_time = time.time()
 
@@ -153,7 +153,10 @@ def process_evaluation():
                     'ARS_q': 2,
                     'temperature': 0.4,
                     'top_k': 20,
-                    'top_p': 0.7
+                    'top_p': 0.7,
+                    'QRS_p': 1, 
+                    'ARS_q': 2,
+                    'use_default_hi': True
                 }
 
                 try:

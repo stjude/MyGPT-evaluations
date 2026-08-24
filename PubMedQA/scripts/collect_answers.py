@@ -6,7 +6,7 @@ import pandas as pd
 import re
 from dotenv import load_dotenv
 
-load_dotenv('../.env')
+load_dotenv('../../.env')
 start_time = time.time()
 
 OLLAMA_API_URL = os.environ.get('OLLAMA_API_URL', '').strip().strip('"').rstrip('/')

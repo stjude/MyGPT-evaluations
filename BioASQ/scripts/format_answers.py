@@ -12,7 +12,7 @@ MODELS = [
      'gpt-oss:20b'
 ]
 
-LIBRARY_NAME = 'bioasq-2'
+LIBRARY_NAME = 'BioASQ'
 
 def collect_answers(json_file_path, csv_file_path):
     """
