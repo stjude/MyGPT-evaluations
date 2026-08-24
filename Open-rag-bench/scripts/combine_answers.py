@@ -67,7 +67,7 @@ def combine_context_with_answers(
 		final_combined.to_csv(output_csv, index=False)
 
 if __name__ == "__main__":
-	library_name = 'open-rag-bench-4'
+	library_name = 'open-rag-bench'
 	answers_csv = f"../outputs/answers/answers-gpt-oss-20b-{library_name}.csv"
 	scores_csv = f"../outputs/answers/answers-scores-{library_name}-gpt-oss:20b.csv"
 	contexts_json = f'../outputs/contexts/context_{library_name}.json'

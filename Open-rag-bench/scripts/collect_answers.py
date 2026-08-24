@@ -15,7 +15,7 @@ OLLAMA_API_URL = os.environ.get('OLLAMA_API_URL', '').strip().strip('"').rstrip(
 # Variables #
 #############
 
-LIBRARY_NAME = 'open-rag-bench-4'
+LIBRARY_NAME = 'open-rag-bench'
 EMBEDDING_MODEL = 'nomic'
 MODELS = [
     'gpt-oss:20b'

@@ -9,7 +9,8 @@ Open-rag-bench is a retrieval-augmented generation benchmark dataset used to eva
 ```
 Open-rag-bench/
 ├── inputs/
-│   └── text_queries_170.csv         # Input queries
+│   ├── text_queries_170.csv         # Input queries with arXiv doc_id values
+│   └── pdfs/                        # Downloaded arXiv PDFs
 ├── outputs/
 │   ├── contexts/                    # Generated context data
 │   │   └── context_open-rag-bench-4.json
@@ -19,6 +20,7 @@ Open-rag-bench/
 │       ├── answers-gpt-oss-20b-open-rag-bench-4.csv
 │       └── answers-scores-open-rag-bench-4-gpt-oss:20b.csv
 └── scripts/
+    ├── download_arxiv_pdfs.py       # Download PDFs listed in text_queries_170.csv
     ├── collect_context.py           # Build context JSON
     ├── collect_answers.py           # Call LLM and store answers
     ├── save_answers.py              # Send answers to scoring API
@@ -28,9 +30,12 @@ Open-rag-bench/
 
 ## Running the Pipeline
 
+Before running the scripts, create a MyGPT library named `open-rag-bench` and upload or index the PDFs from `inputs/pdfs` into that library.
+
 From the `scripts/` directory:
 
 ```bash
+python3 download_arxiv_pdfs.py
 python3 collect_context.py
 python3 collect_answers.py
 python3 save_answers.py

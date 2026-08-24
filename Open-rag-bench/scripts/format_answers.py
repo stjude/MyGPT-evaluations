@@ -12,7 +12,7 @@ MODELS = [
      'gpt-oss:20b'
 ]
 
-LIBRARY_NAME = 'open-rag-bench-4'
+LIBRARY_NAME = 'open-rag-bench'
 
 def collect_answers(json_file_path, csv_file_path):
     """

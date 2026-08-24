@@ -14,7 +14,7 @@ BACKEND_API_URL = os.environ.get('BACKEND_API_URL', '').strip().strip('"').rstri
 # Variables #
 #############
 
-LIBRARY_NAME = 'open-rag-bench-4'
+LIBRARY_NAME = 'open-rag-bench'
 EMBEDDING_MODEL = 'nomic'
 model =  'gpt-oss:20b' #'gpt-oss:20b'
 
