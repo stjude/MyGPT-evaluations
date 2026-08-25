@@ -21,8 +21,6 @@ model = 'gpt-oss:20b'
 ##############
 
 # Define API endpoints
-# CONTEXT_API = 'https://svlpmygptbknd01.stjude.org/api/get_context/'
-# DATASET_API = 'https://svlpmygptbknd01.stjude.org/api/get_documents/'
 CONTEXT_API = f'{BACKEND_API_URL}/api/get_context/'
 DATASET_API = f'{BACKEND_API_URL}/api/get_documents/'
 
@@ -38,7 +36,6 @@ DATASETS = [LIBRARY_NAME]
 # Get bearer token for backend API calls
 def get_token():
     """Fetch the bearer token for API calls."""
-    # url = 'https://svlpmygptbknd01.stjude.org/token/'
     url = f'{BACKEND_API_URL}/token/'
     payload = {
         'username': os.environ.get('API_USERNAME'),

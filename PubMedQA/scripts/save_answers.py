@@ -26,9 +26,7 @@ COLLECTED = []
 
 ### APIs ###
 # answer distance api
-#answer_api = 'https://svlpmygptbknd01.stjude.org/api/get_distance_between_answers/'
 answer_api = f'{BACKEND_API_URL}/api/get_distance_between_answers/'
-#save_answer_api = 'https://svlpmygptbknd01.stjude.org/api/save_answer/'
 save_answer_api = f'{BACKEND_API_URL}/api/save_answer/'
  
 # Load evaluation documents and questions
@@ -52,8 +50,6 @@ token = get_jwt_token()
 print(token)
  
 # Define API endpoints
-#dataset_questions_api = 'https://svlpmygptbknd01.stjude.org/api/get_conversation_history/?dataset='
-#question_detail_api = 'https://svlpmygptbknd01.stjude.org/api/get_question_details/?question_id='
 dataset_questions_api = f'{BACKEND_API_URL}/api/get_conversation_history/?dataset='
 question_detail_api = f'{BACKEND_API_URL}/api/get_question_details/?question_id='
  
