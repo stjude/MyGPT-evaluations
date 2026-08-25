@@ -46,9 +46,9 @@ This repository includes six major evaluation benchmarks:
 | **BioASQ** | Biomedical | Domain-specific QA on biomedical literature | [→ BioASQ/README.md](BioASQ/README.md) |
 | **PubMedQA** | Scientific | Question answering on PubMed abstracts with entity re-ranking | [→ PubMedQA/README.md](PubMedQA/README.md) |
 | **Open-rag-bench** | General | Open-domain QA with retrieval-augmented generation | [→ Open-rag-bench/README.md](Open-rag-bench/README.md) |
-| **QRS-ARS Cutoff** | Multi-modal | Cutoff threshold calculation for embedding models | [→ QRS-QRS-cutoff/README.md](QRS-QRS-cutoff/README.md) |
 | **Health Policies** | Public health | Policy document QA across global health policy PDFs | [→ health_policies/README.md](health_policies/README.md) |
 | **Kinase Literature** | Biomedical literature mining | Kinase-specific extraction from PubMed-linked papers | [→ kinase_literature/README.md](kinase_literature/README.md) |
+| **QRS-ARS Cutoff** | Multi-modal | Cutoff threshold calculation for embedding models | [→ QRS-ARS-cutoff/README.md](QRS-ARS-cutoff/README.md) |
 
 ## Standard Evaluation Pipeline
 
@@ -83,16 +83,16 @@ Each dataset folder contains scripts for these steps in its `scripts/` directory
 │   ├── inputs/
 │   ├── outputs/
 │   └── scripts/
-├── QRS-QRS-cutoff/                    # Embedding model cutoff calculation
-│   ├── README.md
-│   ├── inputs/
-│   ├── outputs/
-│   └── scripts/
 ├── health_policies/                   # Global health policy document QA
 │   ├── README.md
 │   ├── inputs/
 │   └── scripts/
-└── kinase_literature/                 # Kinase literature extraction benchmark
+├── kinase_literature/                 # Kinase literature extraction benchmark
+│   ├── README.md
+│   ├── inputs/
+│   ├── outputs/
+│   └── scripts/
+└── QRS-ARS-cutoff/                    # Embedding model cutoff calculation
     ├── README.md
     ├── inputs/
     ├── outputs/
@@ -131,9 +131,9 @@ For dataset-specific questions, implementation details, and troubleshooting:
 - **BioASQ**: See [BioASQ/README.md](BioASQ/README.md)
 - **PubMedQA**: See [PubMedQA/README.md](PubMedQA/README.md)
 - **Open-rag-bench**: See [Open-rag-bench/README.md](Open-rag-bench/README.md)
-- **QRS-ARS Cutoff**: See [QRS-QRS-cutoff/README.md](QRS-QRS-cutoff/README.md)
 - **Health Policies**: See [health_policies/README.md](health_policies/README.md)
 - **Kinase Literature**: See [kinase_literature/README.md](kinase_literature/README.md)
+- **QRS-ARS Cutoff**: See [QRS-ARS-cutoff/README.md](QRS-ARS-cutoff/README.md)
 
 ## License
 
