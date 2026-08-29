@@ -2,6 +2,18 @@
 
 Comprehensive evaluation datasets and pipelines for the **MyGPT** retrieval-augmented generation system. This repository contains multiple benchmark datasets, evaluation scripts, and analysis tools used to assess MyGPT's performance across different domains and scenarios.
 
+This repository is part of the **MyGPT research paper**. To run these evaluations, you must have MyGPT installed and running.
+
+## Prerequisites
+
+**MyGPT Installation Required**: These evaluation pipelines require a running instance of MyGPT. Users can deploy MyGPT in one of the following ways:
+
+1. **Local Installation** – Install MyGPT on your machine (recommended for development)
+2. **VM Deployment** – Run MyGPT on a virtual machine
+3. **Cloud Hosting** – Deploy MyGPT on cloud infrastructure (AWS, Azure, GCP, etc.)
+
+For detailed installation instructions, see the [MyGPT GitHub repository](https://github.com/stjude/MyGPT).
+
 ## Quick Start
 
 ### 1. Environment Setup
@@ -41,14 +53,14 @@ Each evaluation dataset has its own folder with a dedicated README containing:
 
 This repository includes six major evaluation benchmarks:
 
-| Dataset | Domain | Purpose | Docs |
-|---------|--------|---------|------|
-| **BioASQ** | Biomedical | Domain-specific QA on biomedical literature | [→ BioASQ/README.md](BioASQ/README.md) |
-| **PubMedQA** | Scientific | Question answering on PubMed abstracts with entity re-ranking | [→ PubMedQA/README.md](PubMedQA/README.md) |
-| **Open-rag-bench** | General | Open-domain QA with retrieval-augmented generation | [→ Open-rag-bench/README.md](Open-rag-bench/README.md) |
-| **Health Policies** | Public health | Policy document QA across global health policy PDFs | [→ health_policies/README.md](health_policies/README.md) |
-| **Kinase Literature** | Biomedical literature mining | Kinase-specific extraction from PubMed-linked papers | [→ kinase_literature/README.md](kinase_literature/README.md) |
-| **QRS-ARS Cutoff** | Multi-modal | Cutoff threshold calculation for embedding models | [→ QRS-ARS-cutoff/README.md](QRS-ARS-cutoff/README.md) |
+| Dataset | Domain | Purpose | PDF Availability | Docs |
+|---------|--------|---------|------------------|------|
+| **BioASQ** | Biomedical | Domain-specific QA on biomedical literature | ✓ Provided | [→ BioASQ/README.md](BioASQ/README.md) |
+| **PubMedQA** | Scientific | Question answering on PubMed abstracts with entity re-ranking | DOIs provided | [→ PubMedQA/README.md](PubMedQA/README.md) |
+| **Open-rag-bench** | General | Open-domain QA with retrieval-augmented generation | Download script | [→ Open-rag-bench/README.md](Open-rag-bench/README.md) |
+| **Health Policies** | Public health | Policy document QA across global health policy PDFs | ✓ Provided | [→ health_policies/README.md](health_policies/README.md) |
+| **Kinase Literature** | Biomedical literature mining | Kinase-specific extraction from PubMed-linked papers | DOIs provided | [→ kinase_literature/README.md](kinase_literature/README.md) |
+| **QRS-ARS Cutoff** | Multi-modal | Cutoff threshold calculation for embedding models | PubMed IDs provided | [→ QRS-ARS-cutoff/README.md](QRS-ARS-cutoff/README.md) |
 
 ## Standard Evaluation Pipeline
 

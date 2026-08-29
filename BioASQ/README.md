@@ -18,8 +18,9 @@ Based on the Power Analysis, we determined that a sample size of 163 would be su
 ```
 BioASQ/
 ├── inputs/
+│   ├── bioasq_13b_final_3964.csv    # Full BioASQ dataset (3964 questions)
 │   ├── questions_final.csv          # Input questions
-|   └── pdfs/                        # PDFs to create the dataset
+│   └── pdfs/                        # PDFs to create the dataset
 ├── outputs/
 │   ├── contexts/                    # Generated context data
 │   │   └── context_Bioasq.json
@@ -57,8 +58,8 @@ Step 2: Run scripts to collect answers and scores.
 
 ## Input Format
 
-- **File**: `inputs/questions_final.csv`
-- Contains the biomedical questions to be evaluated
+- **File**: `inputs/bioasq_13b_final_3964.csv` - Full BioASQ dataset with 3964 biomedical questions
+- **File**: `inputs/questions_final.csv` - Final filtered/selected questions to be evaluated
 
 ## Output Files
 
