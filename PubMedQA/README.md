@@ -26,6 +26,16 @@ PubMedQA/
     └── combine_answers.py           # Combine all results
 ```
 
+## Important Note
+
+**PDF files are not provided in this repository.** The PDFs used for this evaluation were downloaded using institutional access, and the published articles are not open access. Therefore, we cannot redistribute them.
+
+However, we have provided **DOIs for all articles in the `inputs/questions.csv` file**. Users interested in running this dataset can:
+1. Extract the DOIs from the questions.csv file
+2. Use the DOIs to access and download the articles through their institutional subscriptions or via services like PubMed Central for open-access articles
+3. Organize the PDFs in the appropriate directory to create a library for evaluation
+
+
 ## Running the Pipeline
 
 From the `scripts/` directory:

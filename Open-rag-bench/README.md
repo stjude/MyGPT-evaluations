@@ -28,6 +28,16 @@ Open-rag-bench/
     └── combine_answers.py           # Combine all results
 ```
 
+## Important Note
+
+**PDF files are not provided in this repository.** However, the `download_arxiv_pdfs.py` script is provided to automatically download all 170 arXiv PDFs referenced in the dataset. Run this script first before proceeding with the rest of the pipeline:
+
+```bash
+python3 scripts/download_arxiv_pdfs.py
+```
+
+This script will download the PDFs into the `inputs/pdfs/` directory based on the arXiv document IDs in `text_queries_170.csv`.
+
 ## Running the Pipeline
 
 Before running the scripts, create a MyGPT library named `open-rag-bench` and upload or index the PDFs from `inputs/pdfs` into that library.

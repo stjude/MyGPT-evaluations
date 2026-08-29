@@ -2,12 +2,24 @@
 
 ## Overview
 
-The QRS-ARS Cutoff dataset is used to calculate optimal quality rank score (QRS) and answer rank score (ARS) cutoff thresholds for various embedding models in the MyGPT system. MyGPT provides precalculated cutoff values for 5 embedding models, which can be found in the backend configuration.
+The QRS-ARS Cutoff dataset is used to calculate optimal Question Relevance Score (QRS) and Answer Relevance Score (ARS) cutoff thresholds for various embedding models in the MyGPT system. MyGPT provides precalculated cutoff values for 5 embedding models as follows:
+
+| Model Name | Model Size (GB) | Source | Best Distance (Q) | Worst Distance (Q) | Best Distance (AC) | Worst Distance (AC) |
+|---|---|---|---|---|---|---|
+| nomic-embed-text:latest | 0.27 | ollama | 41.65 | 501.324 | 20.132 | 469.74 |
+| nomic-embed-text-v2-moe:latest | 0.96 | ollama | 13.43 | 214.38 | 23.69 | 206.29 |
+| bge-m3:latest | 1.16 | ollama | 81.44 | 820.82 | 164.86 | 736.67 |
+| multi-qa-MiniLM-L6-cos-v1 | - | sentence-transformer | 0.074 | 0.96 | 0.074 | 0.61 |
+| qwen3-embedding:latest | 4.68 | ollama | 0.086 | 1.647 | 0.133 | 1.165 |
+
+Users interested in adding new embedding models should first download the necessary PDFs and create a MyGPT library with the appropriate embedding model.
+
+For users interested in recalculating cutoff thresholds for their own use-case, should first create a library with their own documents and embedding model, and then run the pipeline to generate the necessary context and answer data for cutoff calculation.
 
 ## Folder Structure
 
 ```
-QRS-QRS-cutoff/
+QRS-ARS-cutoff/
 ├── inputs/
 │   └── QRS_ARS_cutoff_dataset.csv   # Input dataset
 ├── outputs/
