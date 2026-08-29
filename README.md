@@ -1,4 +1,5 @@
 # MyGPT Evaluations
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22165150.svg)](https://doi.org/10.5281/zenodo.22165150)
 
 Comprehensive evaluation datasets and pipelines for the **MyGPT** retrieval-augmented generation system. This repository contains multiple benchmark datasets, evaluation scripts, and analysis tools used to assess MyGPT's performance across different domains and scenarios.
 
