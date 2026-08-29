@@ -60,7 +60,7 @@ This repository includes six major evaluation benchmarks:
 | **Open-rag-bench** | General | Open-domain QA with retrieval-augmented generation | Download script | [→ Open-rag-bench/README.md](Open-rag-bench/README.md) |
 | **Health Policies** | Public health | Policy document QA across global health policy PDFs | ✓ Provided | [→ health_policies/README.md](health_policies/README.md) |
 | **Kinase Literature** | Biomedical literature mining | Kinase-specific extraction from PubMed-linked papers | DOIs provided | [→ kinase_literature/README.md](kinase_literature/README.md) |
-| **QRS-ARS Cutoff** | Multi-modal | Cutoff threshold calculation for embedding models | DOIs provided | [→ QRS-ARS-cutoff/README.md](QRS-ARS-cutoff/README.md) |
+| **QRS-ARS Cutoff** | Multi-modal | Cutoff threshold calculation for embedding models | PubMed IDs provided | [→ QRS-ARS-cutoff/README.md](QRS-ARS-cutoff/README.md) |
 
 ## Standard Evaluation Pipeline
 
