@@ -14,7 +14,7 @@ The QRS-ARS Cutoff dataset is used to calculate optimal Question Relevance Score
 
 Users interested in adding new embedding models should first download the necessary PDFs and create a MyGPT library with the appropriate embedding model.
 
-For users interested in recalculating cutoff thresholds for their own use-case, should first create a library with their own documents and embedding model, and then run the pipeline to generate the necessary context and answer data for cutoff calculation.
+For users interested in recalculating cutoff thresholds for their own use case, they should first create a library with their own documents and embedding model, and then run the pipeline to generate the necessary context and answer data for cutoff calculation.
 
 ## Folder Structure
 
